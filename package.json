@@ -1,0 +1,12 @@
+{
+  "name": "Daily-action",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yuan3140/Daily-action.git",
+  "author": "Tracyc3 <562720180@qq.com>",
+  "license": "MIT",
+  "dependencies": {
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
