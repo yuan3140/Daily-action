@@ -22,7 +22,11 @@ merge.dayInfo = {
 const sendNotification = async () => {
   let sckey = push_key.replace(/[\r\n]/g, '')
 
-  const title = '利，粗大事了，快看看吧！！！'
+  const date = new Date()
+  const month = date.getMonth() + 1
+  const day = date.getDate()
+
+  const title = `利利大事件——${date.getFullYear()}-${month > 9 ? month : '0' + month}-${day > 9 ? day : '0' + day}`
   content = ''
 
   for (let i in merge) {
