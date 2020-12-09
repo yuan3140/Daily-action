@@ -9,10 +9,9 @@ const api_key = process.env.API_KEY
 const rp = require('request-promise');
 
 const DAY_COUNT = 24 * 60 * 60 * 1000
-const yearLastDays = parseInt((Number(new Date(YEAR_DAY)) - Number(new Date())) / DAY_COUNT)
-const meetDays = parseInt( ( Number(new Date()) - Number(new Date(FIRST_MEET_DAY)) ) / DAY_COUNT )
+const yearLastDays = Math.ceil((Number(new Date(YEAR_DAY)) - Number(new Date())) / DAY_COUNT)
+const meetDays = Math.ceil( ( Number(new Date()) - Number(new Date(FIRST_MEET_DAY)) ) / DAY_COUNT )
 
-console.log('last day: ', yearLastDays, ' meet day: ', meetDays)
 
 let merge = {}
 merge.dayInfo = {
@@ -30,7 +29,6 @@ const sendNotification = async () => {
     content += merge[i].notify ? "\n\n" + merge[i].notify : ""
   }
 
-  console.log('>>> send content: ', content)
 
   const options = {
     uri: `https://sc.ftqq.com/${sckey}.send`,
@@ -43,7 +41,6 @@ const sendNotification = async () => {
   }
 
   let result = await rp.post(options)
-  console.log('>>> send info: ', result)
   console.log("消息发送完毕", result.errno)
 }
 
@@ -61,7 +58,6 @@ const queryWeather = async () => {
 
   const data = await rp.post(options)
   const { statusCode, result, desc } = data
-  console.log('>>> weather', desc)
   const weatherInfo = result[0]
   const {weather, humidity, temperature, winddirection, windpower } = weatherInfo
   if (statusCode === '000000') {
