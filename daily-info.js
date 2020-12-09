@@ -110,7 +110,7 @@ const queryJoke = async () => {
   const {statusCode, result} = data
   if (statusCode === '000000') {
     merge.joke = {
-      notify: `#### 今日笑话: 🐶\n ${result.map((item, index) => (index + 1) + '. ' + item.content).join('\n')}` 
+      notify: `#### 今日笑话: 🐶\n${result.map((item, index) => (index + 1) + '. ' + item.content).join('\n')}` 
     }
   }
 }
@@ -130,7 +130,7 @@ const queryTongue = async () => {
   const { statusCode, result } = data
   if (statusCode === '000000') {
     merge.tongue = {
-      notify: `#### 今日绕口令: 🐶\n ${result.map((item, index) => (index + 1) + '. ' + item.content).join('\n')}` 
+      notify: `#### 今日绕口令: 🐶\n${result.map((item, index) => (index + 1) + '. ' + item.content).join('\n')}` 
     }
   }
 }
