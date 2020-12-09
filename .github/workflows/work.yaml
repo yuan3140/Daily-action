@@ -39,10 +39,3 @@ jobs:
       - name: Run script
         run: node daily-info.js
 
-      # 获取结果
-      - name: Upload result file
-        uses: actions/upload-artifct@master
-        if: env.UPLOAD_BESULT_DIR == 'true'
-        with:
-          name: result
-          path: ./*.txta
